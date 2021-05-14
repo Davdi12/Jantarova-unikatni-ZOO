@@ -91,7 +91,7 @@ function buyAnimal() { //buys a new animal if there is space
       addMoney(-animalPrice)
       animalNumber += 1
       document.getElementById("animalNumber").textContent = fancy(animalNumber)
-      animalPrice *= 1.01
+      animalPrice *= 1.001
       document.getElementById("priceAnimal").textContent = "Cena: $" + fancy(animalPrice)
       document.getElementById("priceCoop").textContent = "Cena: $" + fancy(coopPrice)
       document.getElementById("incomeCounter").textContent = "Příjem: $" + fancy(calculateIncome() * 10) + "/s"
