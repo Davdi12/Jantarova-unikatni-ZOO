@@ -2,7 +2,8 @@
 Also known as JZOO
 translates to "Jantar's unique ZOO".
 It's a internet game
-You can find it [HERE](http://jantaruvkapitalistickysimulatorcernehotrhusezviraty.4fan.cz).
+
+You can find it [**HERE**](http://jantaruvkapitalistickysimulatorcernehotrhusezviraty.4fan.cz).
 
 
 ## What the hell am I supposed to do?
@@ -27,3 +28,8 @@ You receive dollars based on the amount of animals you own and how many space yo
 
 ### How does animal death work exactly?
 10 seconds after loading the webpage, every 30 seconds a function is called that kills 0.5% of owned animals. Those animals no longer make you money but you can sell them for $1K each. Just like you sold your childhood dog at the beginning.
+
+
+# TODO:
++ Make save/load system using cookies
++ Visualisation of all the animal spaces and the animals (might be optional because *JS performance*)
