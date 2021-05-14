@@ -1,6 +1,6 @@
 # Jantarova unikatni ZOO
 Also known as JZOO
-Translates to "Jantar's unique ZOO".
+translates to "Jantar's unique ZOO".
 It's a internet game
 You can find it [HERE](http://jantaruvkapitalistickysimulatorcernehotrhusezviraty.4fan.cz).
 
