@@ -1,0 +1,75 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" type="text/javascript"></script>
+  <title>JZOO</title>
+</head>
+
+<body>
+  <div>
+    <h1>Jantarova unikátní ZOO</h1>
+    <h2>Nejlepší kapitalistický simulátor černého trhu se zvířaty</h2>
+  </div>
+  <div>
+    <center>
+    <table style="width: 820px; margin-bottom: 10px;">
+      <tr>
+        <td width=250px>
+          <p id=moneyCounter>Peníze: $</p>
+        </td>
+        <td>
+          <p id=incomeCounter>Příjem: $0/s</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p id="maxAnimals">Max zvířat: 0</p>
+        </td>
+      </tr>
+    </table>
+
+    <table style="width: 820px">
+      <tr>
+        <td style="width: 70px">
+          <p id="coopNumber">0</p>
+        </td>
+        <td><p>Koupit výběhy (-$5/s)</p></td>
+        <td><button onclick=buyCoop()>1x</button></td>
+        <td><button onclick=buyCoopHalf()>50%</button></td>
+        <td><button onclick=buyCoopMax()>100%</button></td>
+        <td>
+          <p id="priceCoop">Cena: $90</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p id="animalNumber">0</p>
+        </td>
+        <td><p>Koupit zvířata (+$1.7/s)</p></td>
+        <td><button onclick=buyAnimal()>1x</button></td>
+        <td><button onclick=buyAnimalHalf()>50%</button></td>
+        <td><button onclick=buyAnimalMax()>100%</button></td>
+        <td>
+          <p id="priceAnimal"></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p id="deadAnimalCounter">1</p>
+        </td>
+        <td><p>Prodat orgány mrtvých zvířat</p></td>
+        <td><button onclick=sellDead()>1x</button></td>
+        <td><button onclick=sellDeadHalf()>50%</button></td>
+        <td><button onclick=sellDeadMax()>100%</button></td>
+        <td>
+          <p>Prodej: $1000</p>
+        </td>
+      </tr>
+    </table>
+  </center>
+  </div>
+  <script>
+  </body>
+  </html>

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@600&display=swap');
+
+body {
+  background-color: black;
+  background-image: url("https://images.wallpapersden.com/image/download/planet-zoo_a2lpZ2aUmZqaraWkpJRobWllrWdma2U.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-family: 'Texturina', serif;
+}
+
+h1, h2 {
+  font-size: 100px;
+  text-align: center;
+  margin-top: -31px;
+}
+
+h2 {
+  margin-top: -85px;
+  font-size: 40px;
+}
+
+div {
+  background-color: #121509;
+  padding: 15px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+table, td, tr {
+  background-color: #151515;
+  padding: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: 25px;
+  border: none;
+  border-radius: 15px;
+  border: solid white;
+}
+
+button:hover {
+  background-color: darkgray;
+}
+
+p {
+  font-size: 23px;
+}
+
+#moneyCounter, #incomeCounter {
+  font-size: 25px;
+}
