@@ -29,6 +29,13 @@ function load() {
   animalNumber = Number(cookies.animalNumber)
   animalPrice = Number(cookies.animalPrice)
   deadAnimals = Number(cookies.deadAnimals)
+
+  document.getElementById("moneyCounter").textContent = "Peníze: $" + playerMoney
+  document.getElementById("maxAnimals").textContent = "Max zvířat: " + animalCapacity
+  document.getElementById("coopNumber").textContent = coopNumber
+  document.getElementById("animalNumber").textContent = animalNumber
+  document.getElementById("priceAnimal").textContent = "Cena: $" + animalPrice
+  document.getElementById("deadAnimalCounter").textContent = deadAnimals
 }
 
 
