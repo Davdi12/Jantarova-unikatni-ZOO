@@ -15,8 +15,8 @@ With your $900 you now have you are now able buy animal space and some animals!
 ## How does money work?
 You receive dollars based on the amount of animals you own and how many space you have for your animals
 
-+ You receive $1.7 every second for each animal you own
-+ You pay $5 every second for each animal space you have
++ You receive $1.7 every second for each animal you own (cause ppl pay moneys to see animals)
++ You pay $5 every second for each animal space you have (service costs or smth idk)
 + You can sell animals for organs after they die and no longer make you money for $1K
 
 
