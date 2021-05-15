@@ -31,6 +31,6 @@ You receive dollars based on the amount of animals you own and how many space yo
 
 
 # TODO:
-+ Make save/load system using cookies
++ Make save/load system using cookies (**done!**)
 + Visualisation of all the animal spaces and the animals (might be optional because *JS performance*)
 + Upgrades (bigger lvl. animals make more money, bigger lvl. animal spaces fit more animals)
