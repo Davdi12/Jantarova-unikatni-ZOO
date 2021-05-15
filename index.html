@@ -38,9 +38,18 @@
           <p id="coopNumber">0</p>
         </td>
         <td><p>Koupit výběhy (-$5/s)</p></td>
-        <td><button onclick=buyCoop()>1x</button></td>
-        <td><button onclick=buyCoopHalf()>50%</button></td>
-        <td><button onclick=buyCoopMax()>100%</button></td>
+        <td><select id="buyAmount">
+          <option value = 1>1x</option>
+          <option value = 2>2x</option>
+          <option value = 5>5x</option>
+          <option value = 10>10x</option>
+          <option value = 25>25x</option>
+          <option value = 50>50x</option>
+          <option value = 100>100x</option>
+          <option value = 250>250x</option>
+          <option value = 500>500x</option>
+        </select></td>
+        <td><button onclick=buyCoop()>Koupit</button></td>
         <td>
           <p id="priceCoop">Cena: $90</p>
         </td>
@@ -51,8 +60,7 @@
         </td>
         <td><p>Koupit zvířata (+$1.7/s)</p></td>
         <td><button onclick=buyAnimal()>1x</button></td>
-        <td><button onclick=buyAnimalHalf()>50%</button></td>
-        <td><button onclick=buyAnimalMax()>100%</button></td>
+        <td><button onclick=buyAnimalMax()>Max</button></td>
         <td>
           <p id="priceAnimal">Cena: $60</p>
         </td>
@@ -63,8 +71,7 @@
         </td>
         <td><p>Prodat orgány mrtvých zvířat</p></td>
         <td><button onclick=sellDead()>1x</button></td>
-        <td><button onclick=sellDeadHalf()>50%</button></td>
-        <td><button onclick=sellDeadMax()>100%</button></td>
+        <td><button onclick=sellDeadMax()>Max</button></td>
         <td>
           <p>Prodej: $1000</p>
         </td>

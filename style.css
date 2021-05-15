@@ -46,6 +46,11 @@ button {
   border: none;
 }
 
+select {
+  font-size: 35px;
+  width: 110px;
+}
+
 button:hover {
   background-color: darkgray;
 }
