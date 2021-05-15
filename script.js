@@ -8,35 +8,6 @@ var deadAnimals = 0 //how many dead animals player has lying around
 var time, time2 //vars for detecting the right time for checkDead()
 
 
-function save() { //function for saving all the variables
-  var time = new Date(9999, 1, 1).toUTCString()
-  document.cookie = "money=" + playerMoney + ";expires=" + time
-  document.cookie = "animalCapacity=" + animalCapacity + ";expires=" + time
-  document.cookie = "coopNumber=" + coopNumber + ";expires=" + time
-  document.cookie = "animalNumber=" + animalNumber + ";expires=" + time
-  document.cookie = "animalPrice=" + animalPrice + ";expires=" + time
-  document.cookie = "deadAnimals=" + deadAnimals + ";expires=" + time
-} //function
-
-
-function load() { //function for loading saved variables (for some reason a lot harder than I thought)
-  var cookies = document.cookie.split("; ").map(cookie => cookie.split("=")).reduce((accumulator, [key, value]) => ({
-    ...accumulator,
-    [key.trim()]: decodeURIComponent(value)
-  }), {}) //what
-
-  playerMoney = Number(cookies.money)
-  animalCapacity = Number(cookies.animalCapacity)
-  coopNumber = Number(cookies.coopNumber)
-  animalNumber = Number(cookies.animalNumber)
-  animalPrice = Number(cookies.animalPrice)
-  deadAnimals = Number(cookies.deadAnimals)
-
-  //write those loaded variables
-  rewrite()
-} //function
-
-
 //SETUP
 addMoney(-100)
 deadAnimals = 1
@@ -172,3 +143,32 @@ function rewrite() {
   document.getElementById("priceAnimal").textContent = "Cena: $" + fancy(animalPrice)
   document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
 }
+
+
+function save() { //function for saving all the variables using cookies
+  var time = new Date(9999, 1, 1).toUTCString()
+  document.cookie = "money=" + playerMoney + ";expires=" + time
+  document.cookie = "animalCapacity=" + animalCapacity + ";expires=" + time
+  document.cookie = "coopNumber=" + coopNumber + ";expires=" + time
+  document.cookie = "animalNumber=" + animalNumber + ";expires=" + time
+  document.cookie = "animalPrice=" + animalPrice + ";expires=" + time
+  document.cookie = "deadAnimals=" + deadAnimals + ";expires=" + time
+} //function
+
+
+function load() { //function for loading saved variables (for some reason a lot harder than I thought)
+  var cookies = document.cookie.split("; ").map(cookie => cookie.split("=")).reduce((accumulator, [key, value]) => ({
+    ...accumulator,
+    [key.trim()]: decodeURIComponent(value)
+  }), {}) //what
+
+  playerMoney = Number(cookies.money)
+  animalCapacity = Number(cookies.animalCapacity)
+  coopNumber = Number(cookies.coopNumber)
+  animalNumber = Number(cookies.animalNumber)
+  animalPrice = Number(cookies.animalPrice)
+  deadAnimals = Number(cookies.deadAnimals)
+
+  //write those loaded variables
+  rewrite()
+} //function
