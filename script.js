@@ -65,7 +65,7 @@ function checkDead() { //kills 5% of owned animals
     time2 = time + 30000
     document.getElementById("animalNumber").textContent = fancy(animalNumber)
     document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
-    document.getElementById("incomeCounter").textContent = "Příjem: $" + calculateIncome() * 10 + "/s"
+    document.getElementById("incomeCounter").textContent = "Příjem: $" + fancy(calculateIncome() * 10) + "/s"
   } //if in range
 } //function
 
@@ -124,7 +124,7 @@ function buyAnimal() { //buys a new animal if there is space
       addMoney(-animalPrice)
       animalNumber += 1
       document.getElementById("animalNumber").textContent = fancy(animalNumber)
-      animalPrice *= 1.001
+      animalPrice += 1
       document.getElementById("priceAnimal").textContent = "Cena: $" + fancy(animalPrice)
       document.getElementById("priceCoop").textContent = "Cena: $" + fancy(coopPrice)
       document.getElementById("incomeCounter").textContent = "Příjem: $" + fancy(calculateIncome() * 10) + "/s"
