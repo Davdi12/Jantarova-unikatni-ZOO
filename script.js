@@ -8,6 +8,30 @@ var deadAnimals = 0 //how many dead animals player has lying around
 var time, time2 //vars for detecting the right time for checkDead()
 
 
+function save() { //function for saving all the variables
+  document.cookie = "money=" + playerMoney
+  document.cookie = "animalCapacity=" + animalCapacity
+  document.cookie = "coopNumber=" + coopNumber
+  document.cookie = "animalNumber=" + animalNumber
+  document.cookie = "animalPrice=" + animalPrice
+  document.cookie = "deadAnimals=" + deadAnimals
+} //function
+
+
+function load() {
+  var cookies = document.cookie.split("; ").map(cookie => cookie.split("=")).reduce((accumulator, [key, value]) => ({
+    ...accumulator,
+    [key.trim()]: decodeURIComponent(value)
+  }), {}) //what
+  playerMoney = Number(cookies.money)
+  animalCapacity = Number(cookies.animalCapacity)
+  coopNumber = Number(cookies.coopNumber)
+  animalNumber = Number(cookies.animalNumber)
+  animalPrice = Number(cookies.animalPrice)
+  deadAnimals = Number(cookies.deadAnimals)
+}
+
+
 //SETUP
 addMoney(-100)
 deadAnimals = 1
