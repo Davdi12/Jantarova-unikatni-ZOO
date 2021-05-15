@@ -22,7 +22,7 @@ You receive dollars based on the amount of animals you own and how many space yo
 
 ## Prices
 + **Space for animals:** starts at $90 and then is 1.6x the price of animal
-+ **Animal:** Starts at $60 and every purchase of new animal increases that price 1.001x (Doesn't sound like a lot but you haven't been to the endgame)
++ **Animal:** Starts at $60 and every purchase of new animal increases that price by $1
 + You can sell dead animals
 
 
