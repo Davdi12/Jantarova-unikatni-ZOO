@@ -82,7 +82,7 @@ function buyAnimal() { //buys a new animal if there is space
 } //function
 
 
-function sellDeadMax() {
+function sellDeadMax() { //sells all dead animals to black market
   for (var i = Math.floor(deadAnimals); i > 0; i--) {
     sellDead()
   } //for there is
@@ -135,14 +135,14 @@ function fancy(value) { //translates money to K, M, B, ...
 } //function
 
 
-function rewrite() {
+function rewrite() { //rewrites all the values on the screen
   document.getElementById("moneyCounter").textContent = "Peníze: $" + fancy(playerMoney)
   document.getElementById("maxAnimals").textContent = "Max zvířat: " + fancy(animalCapacity)
   document.getElementById("coopNumber").textContent = fancy(coopNumber)
   document.getElementById("animalNumber").textContent = fancy(animalNumber)
   document.getElementById("priceAnimal").textContent = "Cena: $" + fancy(animalPrice)
   document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
-}
+} //function
 
 
 function save() { //function for saving all the variables using cookies
@@ -169,6 +169,5 @@ function load() { //function for loading saved variables (for some reason a lot 
   animalPrice = Number(cookies.animalPrice)
   deadAnimals = Number(cookies.deadAnimals)
 
-  //write those loaded variables
   rewrite()
 } //function
