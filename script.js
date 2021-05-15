@@ -30,8 +30,8 @@ function checkDead() { //kills 5% of owned animals
     animalNumber -= x
     deadAnimals += x
     time2 = time + 30000
-    document.getElementById("animalNumber").textContent = animalNumber
-    document.getElementById("deadAnimalCounter").textContent = deadAnimals
+    document.getElementById("animalNumber").textContent = fancy(animalNumber)
+    document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
     document.getElementById("incomeCounter").textContent = "Příjem: $" + calculateIncome() * 10 + "/s"
   } //if in range
 } //function
