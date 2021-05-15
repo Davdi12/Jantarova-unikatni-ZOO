@@ -9,12 +9,13 @@ var time, time2 //vars for detecting the right time for checkDead()
 
 
 function save() { //function for saving all the variables
-  document.cookie = "money=" + playerMoney
-  document.cookie = "animalCapacity=" + animalCapacity
-  document.cookie = "coopNumber=" + coopNumber
-  document.cookie = "animalNumber=" + animalNumber
-  document.cookie = "animalPrice=" + animalPrice
-  document.cookie = "deadAnimals=" + deadAnimals
+  var time = new Date(9999, 1, 1).toUTCString()
+  document.cookie = "money=" + playerMoney + ";expires=" + time
+  document.cookie = "animalCapacity=" + animalCapacity + ";expires=" + time
+  document.cookie = "coopNumber=" + coopNumber + ";expires=" + time
+  document.cookie = "animalNumber=" + animalNumber + ";expires=" + time
+  document.cookie = "animalPrice=" + animalPrice + ";expires=" + time
+  document.cookie = "deadAnimals=" + deadAnimals + ";expires=" + time
 } //function
 
 
