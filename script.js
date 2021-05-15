@@ -18,11 +18,12 @@ function save() { //function for saving all the variables
 } //function
 
 
-function load() {
+function load() { //function for loading saved variables (for some reason a lot harder than I thought)
   var cookies = document.cookie.split("; ").map(cookie => cookie.split("=")).reduce((accumulator, [key, value]) => ({
     ...accumulator,
     [key.trim()]: decodeURIComponent(value)
   }), {}) //what
+
   playerMoney = Number(cookies.money)
   animalCapacity = Number(cookies.animalCapacity)
   coopNumber = Number(cookies.coopNumber)
@@ -30,13 +31,14 @@ function load() {
   animalPrice = Number(cookies.animalPrice)
   deadAnimals = Number(cookies.deadAnimals)
 
+  //write those loaded variables
   document.getElementById("moneyCounter").textContent = "Peníze: $" + fancy(playerMoney)
   document.getElementById("maxAnimals").textContent = "Max zvířat: " + fancy(animalCapacity)
   document.getElementById("coopNumber").textContent = fancy(coopNumber)
   document.getElementById("animalNumber").textContent = fancy(animalNumber)
   document.getElementById("priceAnimal").textContent = "Cena: $" + fancy(animalPrice)
   document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
-}
+} //function
 
 
 //SETUP
