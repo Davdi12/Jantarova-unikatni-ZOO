@@ -16,7 +16,7 @@ setInterval(loop, 100) //loop function
 
 
 function loop() { //this function executes 10x every second
-  document.getElementById("priceCoop").textContent = "Cena: $" + (document.getElementById("buyAmount").value * coopPrice)
+  document.getElementById("priceCoop").textContent = "Cena: $" + fancy(document.getElementById("buyAmount").value * coopPrice)
   document.getElementById("moneyCounter").textContent = "Peníze: $" + fancy(playerMoney)
   document.title = "JZOO ($" + fancy(playerMoney) + ")"
   addMoney(calculateIncome())
