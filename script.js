@@ -8,40 +8,6 @@ var deadAnimals = 0 //how many dead animals player has lying around
 var time, time2 //vars for detecting the right time for checkDead()
 
 
-function save() { //function for saving all the variables
-  var time = new Date(9999, 1, 1).toUTCString()
-  document.cookie = "money=" + playerMoney + ";expires=" + time
-  document.cookie = "animalCapacity=" + animalCapacity + ";expires=" + time
-  document.cookie = "coopNumber=" + coopNumber + ";expires=" + time
-  document.cookie = "animalNumber=" + animalNumber + ";expires=" + time
-  document.cookie = "animalPrice=" + animalPrice + ";expires=" + time
-  document.cookie = "deadAnimals=" + deadAnimals + ";expires=" + time
-} //function
-
-
-function load() { //function for loading saved variables (for some reason a lot harder than I thought)
-  var cookies = document.cookie.split("; ").map(cookie => cookie.split("=")).reduce((accumulator, [key, value]) => ({
-    ...accumulator,
-    [key.trim()]: decodeURIComponent(value)
-  }), {}) //what
-
-  playerMoney = Number(cookies.money)
-  animalCapacity = Number(cookies.animalCapacity)
-  coopNumber = Number(cookies.coopNumber)
-  animalNumber = Number(cookies.animalNumber)
-  animalPrice = Number(cookies.animalPrice)
-  deadAnimals = Number(cookies.deadAnimals)
-
-  //write those loaded variables
-  document.getElementById("moneyCounter").textContent = "Peníze: $" + fancy(playerMoney)
-  document.getElementById("maxAnimals").textContent = "Max zvířat: " + fancy(animalCapacity)
-  document.getElementById("coopNumber").textContent = fancy(coopNumber)
-  document.getElementById("animalNumber").textContent = fancy(animalNumber)
-  document.getElementById("priceAnimal").textContent = "Cena: $" + fancy(animalPrice)
-  document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
-} //function
-
-
 //SETUP
 addMoney(-100)
 deadAnimals = 1
@@ -50,6 +16,7 @@ setInterval(loop, 100) //loop function
 
 
 function loop() { //this function executes 10x every second
+  document.getElementById("priceCoop").textContent = "Cena: $" + fancy(document.getElementById("buyAmount").value * coopPrice)
   document.getElementById("moneyCounter").textContent = "Peníze: $" + fancy(playerMoney)
   document.title = "JZOO ($" + fancy(playerMoney) + ")"
   addMoney(calculateIncome())
@@ -79,40 +46,20 @@ function buyCoopMax() { //buys maximum amount of coops player can afford
 } //function
 
 
-function buyCoopHalf() { //buys half of affordable animal
-  var aff = Math.floor(playerMoney / coopPrice)
-  aff = Math.ceil(aff / 2)
-  for (var i = 0; i < aff; i++) {
-    buyCoop()
-  } //for
-} //function
-
-
 function buyCoop() { //buys new coop, makes animal capacity bigger
-  if (playerMoney >= coopPrice) {
-    coopNumber++
-    addMoney(-coopPrice)
-    animalCapacity += 12
+  var amount = document.getElementById("buyAmount").value
+  if (playerMoney >= amount * coopPrice) {
+    coopNumber += Number(amount)
+    animalCapacity += amount * 12
+    addMoney(-amount * coopPrice)
     document.getElementById("coopNumber").textContent = fancy(coopNumber)
-    coopPrice = animalPrice * 1.6
-    document.getElementById("priceCoop").textContent = "Cena: $" + fancy(coopPrice)
-    document.getElementById("incomeCounter").textContent = "Příjem: $" + fancy(calculateIncome() * 10) + "/s"
     document.getElementById("maxAnimals").textContent = "Max zvířat: " + fancy(animalCapacity)
-  } //if playermoney
+  } //if hasmoney
 } //function
 
 
 function buyAnimalMax() { //buys maximum amount of coops player can afford
   var aff = Math.floor(playerMoney / animalPrice)
-  for (var i = 0; i < aff; i++) {
-    buyAnimal()
-  } //for
-} //function
-
-
-function buyAnimalHalf() { //buys half of affordable animal
-  var aff = Math.floor(playerMoney / animalPrice)
-  aff = Math.ceil(aff / 2)
   for (var i = 0; i < aff; i++) {
     buyAnimal()
   } //for
@@ -135,15 +82,8 @@ function buyAnimal() { //buys a new animal if there is space
 } //function
 
 
-function sellDeadMax() {
+function sellDeadMax() { //sells all dead animals to black market
   for (var i = Math.floor(deadAnimals); i > 0; i--) {
-    sellDead()
-  } //for there is
-} //function
-
-
-function sellDeadHalf() {
-  for (var i = Math.floor(deadAnimals / 2); i > 0; i--) {
     sellDead()
   } //for there is
 } //function
@@ -192,4 +132,42 @@ function fancy(value) { //translates money to K, M, B, ...
     return Math.round((value / 1000) * 10) / 10 + "K"
   } //if
   return Math.round((value) * 10) / 10
+} //function
+
+
+function rewrite() { //rewrites all the values on the screen
+  document.getElementById("moneyCounter").textContent = "Peníze: $" + fancy(playerMoney)
+  document.getElementById("maxAnimals").textContent = "Max zvířat: " + fancy(animalCapacity)
+  document.getElementById("coopNumber").textContent = fancy(coopNumber)
+  document.getElementById("animalNumber").textContent = fancy(animalNumber)
+  document.getElementById("priceAnimal").textContent = "Cena: $" + fancy(animalPrice)
+  document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
+} //function
+
+
+function save() { //function for saving all the variables using cookies
+  var time = new Date(9999, 1, 1).toUTCString()
+  document.cookie = "money=" + playerMoney + ";expires=" + time
+  document.cookie = "animalCapacity=" + animalCapacity + ";expires=" + time
+  document.cookie = "coopNumber=" + coopNumber + ";expires=" + time
+  document.cookie = "animalNumber=" + animalNumber + ";expires=" + time
+  document.cookie = "animalPrice=" + animalPrice + ";expires=" + time
+  document.cookie = "deadAnimals=" + deadAnimals + ";expires=" + time
+} //function
+
+
+function load() { //function for loading saved variables (for some reason a lot harder than I thought)
+  var cookies = document.cookie.split("; ").map(cookie => cookie.split("=")).reduce((accumulator, [key, value]) => ({
+    ...accumulator,
+    [key.trim()]: decodeURIComponent(value)
+  }), {}) //what
+
+  playerMoney = Number(cookies.money)
+  animalCapacity = Number(cookies.animalCapacity)
+  coopNumber = Number(cookies.coopNumber)
+  animalNumber = Number(cookies.animalNumber)
+  animalPrice = Number(cookies.animalPrice)
+  deadAnimals = Number(cookies.deadAnimals)
+
+  rewrite()
 } //function
