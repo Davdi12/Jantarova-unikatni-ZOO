@@ -38,14 +38,6 @@ function checkDead() { //kills 5% of owned animals
 } //function
 
 
-function buyCoopMax() { //buys maximum amount of coops player can afford
-  var aff = Math.floor(playerMoney / coopPrice)
-  for (var i = 0; i < aff; i++) {
-    buyCoop()
-  } //for
-} //function
-
-
 function buyCoop() { //buys new coop, makes animal capacity bigger
   var amount = document.getElementById("buyAmount").value
   if (playerMoney >= amount * coopPrice) {
@@ -79,6 +71,8 @@ function buyAnimal() { //buys a new animal if there is space
       coopPrice = animalPrice * 1.5
     } //if playermoney
   } //if is in capacity
+  document.getElementById("deadPrice").textContent = "Prodej: $" + fancy(animalPrice * 40)
+
 } //function
 
 
@@ -92,7 +86,7 @@ function sellDeadMax() { //sells all dead animals to black market
 function sellDead() { //sells dead animals for organs
   if (deadAnimals > 0) {
     deadAnimals--
-    addMoney(1000) //rewards you for doing a fucking crime
+    addMoney(animalPrice * 40) //rewards you for doing a fucking crime
     document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
   } //if deadAnimals
 } //function
