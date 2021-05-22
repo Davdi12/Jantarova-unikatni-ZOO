@@ -147,6 +147,7 @@ function save() { //function for saving all the variables using cookies
   document.cookie = "animalNumber=" + animalNumber + ";expires=" + time
   document.cookie = "animalPrice=" + animalPrice + ";expires=" + time
   document.cookie = "deadAnimals=" + deadAnimals + ";expires=" + time
+  document.cookie = "backgroundImage=" + i + ";expires=" + time
 } //function
 
 
@@ -162,6 +163,19 @@ function load() { //function for loading saved variables (for some reason a lot 
   animalNumber = Number(cookies.animalNumber)
   animalPrice = Number(cookies.animalPrice)
   deadAnimals = Number(cookies.deadAnimals)
+  flag = Number(cookies.backgroundImage)
 
   rewrite()
 } //function
+
+var flag = 0
+
+function nsfwToggle() {
+  if (flag == 1) {
+    document.body.style.backgroundImage = 'url("https://scontent-prg1-1.xx.fbcdn.net/v/t1.15752-9/189584967_1408002452886053_5153604982954575347_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=ae9488&_nc_ohc=eFpTDvSx0L8AX_xxqgD&_nc_ht=scontent-prg1-1.xx&oh=eb7c69da9279af044f011f08e980bfe8&oe=60CF20AF")'
+    flag = 0
+  } else if (flag == 0) {
+    document.body.style.backgroundImage = 'url("https://wallpapercave.com/wp/Om3yOQJ.jpg")'
+    flag = 1
+  }
+}
