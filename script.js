@@ -6,6 +6,8 @@ var animalPrice = 60 //base price of animal
 var coopPrice = animalPrice * 1.5 //base price of coop
 var deadAnimals = 0 //how many dead animals player has lying around
 var time, time2 //vars for detecting the right time for checkDead()
+var animalLv = 1 //level of animals (more profit)
+var coopLv = 1 //level of coop (bigger capacity)
 
 
 //SETUP
