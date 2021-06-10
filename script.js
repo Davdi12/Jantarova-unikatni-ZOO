@@ -6,6 +6,8 @@ var animalPrice = 60 //base price of animal
 var coopPrice = animalPrice * 1.5 //base price of coop
 var deadAnimals = 0 //how many dead animals player has lying around
 var time, time2 //vars for detecting the right time for checkDead()
+var animalLv = 1 //level of animals (more profit)
+var coopLv = 1 //level of coop (bigger capacity)
 
 
 //SETUP
@@ -35,14 +37,6 @@ function checkDead() { //kills 5% of owned animals
     document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
     document.getElementById("incomeCounter").textContent = "Příjem: $" + fancy(calculateIncome() * 10) + "/s"
   } //if in range
-} //function
-
-
-function buyCoopMax() { //buys maximum amount of coops player can afford
-  var aff = Math.floor(playerMoney / coopPrice)
-  for (var i = 0; i < aff; i++) {
-    buyCoop()
-  } //for
 } //function
 
 
@@ -79,6 +73,8 @@ function buyAnimal() { //buys a new animal if there is space
       coopPrice = animalPrice * 1.5
     } //if playermoney
   } //if is in capacity
+  document.getElementById("deadPrice").textContent = "Prodej: $" + fancy(animalPrice * 40)
+
 } //function
 
 
@@ -92,7 +88,7 @@ function sellDeadMax() { //sells all dead animals to black market
 function sellDead() { //sells dead animals for organs
   if (deadAnimals > 0) {
     deadAnimals--
-    addMoney(1000) //rewards you for doing a fucking crime
+    addMoney(animalPrice * 40) //rewards you for doing a fucking crime
     document.getElementById("deadAnimalCounter").textContent = fancy(deadAnimals)
   } //if deadAnimals
 } //function
@@ -153,6 +149,7 @@ function save() { //function for saving all the variables using cookies
   document.cookie = "animalNumber=" + animalNumber + ";expires=" + time
   document.cookie = "animalPrice=" + animalPrice + ";expires=" + time
   document.cookie = "deadAnimals=" + deadAnimals + ";expires=" + time
+  document.cookie = "backgroundImage=" + i + ";expires=" + time
 } //function
 
 
@@ -168,6 +165,19 @@ function load() { //function for loading saved variables (for some reason a lot 
   animalNumber = Number(cookies.animalNumber)
   animalPrice = Number(cookies.animalPrice)
   deadAnimals = Number(cookies.deadAnimals)
+  flag = Number(cookies.backgroundImage)
 
   rewrite()
 } //function
+
+var flag = 0
+
+function nsfwToggle() {
+  if (flag == 1) {
+    document.body.style.backgroundImage = 'url("https://scontent-prg1-1.xx.fbcdn.net/v/t1.15752-9/189584967_1408002452886053_5153604982954575347_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=ae9488&_nc_ohc=eFpTDvSx0L8AX_xxqgD&_nc_ht=scontent-prg1-1.xx&oh=eb7c69da9279af044f011f08e980bfe8&oe=60CF20AF")'
+    flag = 0
+  } else if (flag == 0) {
+    document.body.style.backgroundImage = 'url("https://wallpapercave.com/wp/Om3yOQJ.jpg")'
+    flag = 1
+  }
+}
