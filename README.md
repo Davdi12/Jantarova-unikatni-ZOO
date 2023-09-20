@@ -3,10 +3,7 @@ Also known as JZOO
 translates to "Jantar's unique ZOO".
 It's a internet game
 
-You can find it [**HERE**](http://jantaruvkapitalistickysimulatorcernehotrhusezviraty.4fan.cz).
-
-
-## What the hell am I supposed to do?
+## What am I supposed to do?
 + You start with $100 debt and your dead childhood dog. What to do? Sell the dog to the black market to get yourself out of the debt!
 With your $2300 you now have you are now able buy animal space and some animals!
 + Your capitalist ZOO is now making you some sweet sweet **CA$HES** !!
@@ -28,9 +25,3 @@ You receive dollars based on the amount of animals you own and how many space yo
 
 ### How does animal death work exactly?
 10 seconds after loading the webpage, every 30 seconds a function is called that kills 0.5% of owned animals. Those animals no longer make you money but you can sell them for some money. Just like you sold your childhood dog at the beginning.
-
-
-# TODO:
-+ Make save/load system using cookies (**done!**)
-+ Visualisation of all the animal spaces and the animals (might be optional because *JS performance*)
-+ Upgrades (bigger lvl. animals make more money, bigger lvl. animal spaces fit more animals)
